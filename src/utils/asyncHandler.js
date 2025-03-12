@@ -1,7 +1,7 @@
 // Promisified version of aync Handler
 
-const asyncHandler = (requestHandler) => (req,res,next) => {
-    Promise.resolve(requestHandler(req,res,next)).catch(error => next(error));
+const asyncHandler = (requestHandler) => async(req,res,next) => {
+    return Promise.resolve(requestHandler(req,res,next)).catch(error => next(error));
 }
 
 // Async try catch version
@@ -32,3 +32,4 @@ const asyncHandler = (fn) => async (req,res,next) => {
     }
 } */
 
+export {asyncHandler}
