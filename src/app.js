@@ -23,10 +23,8 @@ app.use(cookieParser());
 // Storing and allocate static files folder
 app.use(express.static("public"));
 
+// Routing the components 
 import router from './routes/users.routes.js';
 
-
 app.use("/api/v1/user", router);
-
-
 export default app;
